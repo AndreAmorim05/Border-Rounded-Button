@@ -1,13 +1,11 @@
 from kivy.app import App
 #from border_rounded_bt import *
-from button_style import ButtonStyle
 from kivy.uix.floatlayout import FloatLayout
 from kivy.uix.screenmanager import Screen, ScreenManager
 from kivy.lang import Builder
 
 Builder.load_string('''
 
-#:import ButtonStyle button_style.ButtonStyle
 #:import BRB border_rounded_bt.BoderRoundedButton
 
 
@@ -23,9 +21,8 @@ Builder.load_string('''
             pos_hint: {'center_x':.5, 'center_y':.5}
             spacing: '5dp'
 
-            ButtonStyle:
-                source_image: 'images/book.png'
-                on_release: self.source_image = 'images/book.png' if self.source_image != 'images/book.png' else 'images/book_alterado.png'
+            Button:
+
 
             BoderRoundedButton:
                 id: brdbt
