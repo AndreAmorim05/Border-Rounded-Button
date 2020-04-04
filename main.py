@@ -26,7 +26,7 @@ Builder.load_string('''
 
             BoderRoundedButton:
                 id: brdbt
-                text: 'Botao de teste Arredondado AAAAAAAAAAAAAAABBBBBBBBBBBBBCCCCCCCCCCCCC'
+                text: 'Botao de teste Arredondado'
                 source_image: 'images/book.png'
                 bold: True
                 text_size: self.width, None
@@ -52,6 +52,41 @@ Builder.load_string('''
                 text: 'Imagem'
                 on_release: brdbt.image_state = True if brdbt.image_state == False else False
 
+
+        BoxLayout:
+            orientation: 'vertical'
+            pos_hint: {'right': 1, 'top': 1}
+            size_hint: .1,.4
+            spacing: '5dp'
+            ToggleButton:
+                group: 'position'
+                text: 'right'
+                on_state: brdbt.image_pos = 'right' if self.state == 'down' else brdbt.state
+            ToggleButton:
+                group: 'position'
+                text: 'left'
+                on_state: brdbt.image_pos = 'left' if self.state == 'down' else brdbt.state
+            ToggleButton:
+                group: 'position'
+                text: 'center'
+                on_state: brdbt.image_pos = 'center' if self.state == 'down' else brdbt.state
+            Label:
+                text: 'Manual'
+            TextInput:
+                id: pos_x
+            Button:
+                text: 'validate'
+                on_release: brdbt.on_image_pos_x = pos_x.text; print(pos_x.text)
+        BoderRoundedButton:
+            pos_hint: {'left':1, 'top':.9}
+            size_hint: .4, .1
+            text: 'Arredondado'
+            source_image: 'images/book.png'
+            bold: True
+            image_state: True
+            source_image: 'images/book.png'
+            image_pos: 'center'
+            # image_pos_x: 0.05
 
 
 
